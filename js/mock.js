@@ -6,18 +6,16 @@ const COLORS = [
 const UNIT_TYPES = [
     MilitiaWarrior, SwordsmanWarrior, HeavySwordsmanWarrior,
     SpearmanWarrior, HeavySpearmanWarrior, ArcherWarrior, 
-    WizardWarrior
+    WizardWarrior, BruteWarrior
 ];
 
 
-function getRandomTeam(color, nofMembers) {
+function getRandomTeam(color, nofMembers, rootX, rootY) {
     let t = new Team(color);
-    let rootX = Gmt.randFloat(300, 900);
-    let rootY = Gmt.randFloat(300, 600);
     Gmt.iter1D(nofMembers, i => {
         let c = Gmt.choice(UNIT_TYPES);
         let w = new c();
-        w.placeAt(rootX + Gmt.randFloat(-200, 200), rootY + Gmt.randFloat(-200, 200));
+        w.placeAt(rootX + Gmt.randFloat(-200, 200), rootY + Gmt.randFloat(-400, 400));
         w.turnTo(Gmt.rad(Gmt.randFloat(0, 2)));
         t.warriors.push(w);
     });
@@ -25,8 +23,8 @@ function getRandomTeam(color, nofMembers) {
 } 
 
 function getTeams() {
-    let nofTeams = Gmt.randInt(2, 5);
-    let nofMembers = parseInt(150/nofTeams);
+    let nofTeams = Gmt.randInt(2, 2);
+    let nofMembers = parseInt(100/nofTeams);
     let colors = [];
     while(colors.length < nofTeams) {
         let c = Gmt.choice(COLORS);
@@ -34,5 +32,5 @@ function getTeams() {
             colors.push(c);
         }
     }
-    return Gmt.constructArray(nofTeams, i => getRandomTeam(colors[i], nofMembers + Gmt.randInt(-2, 2)));
+    return Gmt.constructArray(nofTeams, i => getRandomTeam(colors[i], nofMembers, Gmt.randFloat(200, 1400), 400));
 }
