@@ -1,9 +1,9 @@
 $(window).ready(() => {
 
-    const painter = new Painter(new Gmt.CanvasWrapper('canvas-home'));
+    let cvs = new Gmt.CanvasWrapper('canvas-home');
+    const painter = new Painter(cvs);
     
-
-    let teams = getTeams();
+    let teams = getTeams(cvs.getBoundingRect());
 
     new Gmt.Loop(60, loop => {
         painter.clear();

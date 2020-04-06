@@ -10,20 +10,21 @@ const UNIT_TYPES = [
 ];
 
 
-function getRandomTeam(color, nofMembers, rootX, rootY) {
+function getRandomTeam(color, nofMembers, rootX, spreadX, rootY, spreadY) {
     let t = new Team(color);
     Gmt.iter1D(nofMembers, i => {
         let c = Gmt.choice(UNIT_TYPES);
         let w = new c();
-        w.placeAt(rootX + Gmt.randFloat(-200, 200), rootY + Gmt.randFloat(-350, 350));
+        w.placeAt(rootX + Gmt.randFloat(-spreadX, spreadX), rootY + Gmt.randFloat(-spreadY, spreadY));
         w.turnTo(Gmt.rad(Gmt.randFloat(0, 2)));
         t.warriors.push(w);
     });
     return t;
 } 
 
-function getTeams() {
-    let team1 = getRandomTeam(Gmt.choice(COLORS), 250, 250, 400);
-    let team2 = getRandomTeam(Gmt.choice(COLORS.filter(w => w.color !== team1.color)), 250, 1250, 400);
+function getTeams(br) {
+    let u = 1000;
+    let team1 = getRandomTeam(Gmt.choice(COLORS), u, 250, 200, br.height/2 + 25, br.height/2 - 50);
+    let team2 = getRandomTeam(Gmt.choice(COLORS.filter(c => c !== team1.color)), u, br.width - 250, 200, br.height/2 + 25, br.height/2 - 50);
     return [team1, team2];
 }
