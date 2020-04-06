@@ -9,7 +9,7 @@ class HealthBar {
 
     damage(number) {
         number -= this.armor;
-        number = number > 0 ? number : 0;
+        number = number > 1 ? number : 1;
         this.curr -= number;
         if(this.curr <= 0) {
             this.alive = false;
