@@ -6,7 +6,8 @@ const COLORS = [
 const UNIT_TYPES = [
     MilitiaWarrior, SwordsmanWarrior, HeavySwordsmanWarrior,
     SpearmanWarrior, HeavySpearmanWarrior, ArcherWarrior, 
-    WizardWarrior, BruteWarrior, BarbarianWarrior, TankWarrior, MedicWarrior
+    WizardWarrior, BruteWarrior, BarbarianWarrior, TankWarrior, MedicWarrior,
+    WarlockWarrior, SkeletonWarrior
 ];
 
 
@@ -23,7 +24,7 @@ function getRandomTeam(color, nofMembers, rootX, spreadX, rootY, spreadY) {
 } 
 
 function getTeams(br) {
-    let u = 100;
+    let u = 20;
     let team1 = getRandomTeam(Gmt.choice(COLORS), u, 250, 200, br.height/2 + 25, br.height/2 - 50);
     let team2 = getRandomTeam(Gmt.choice(COLORS.filter(c => c !== team1.color)), u, br.width - 250, 200, br.height/2 + 25, br.height/2 - 50);
     return [team1, team2];

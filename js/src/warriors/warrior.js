@@ -15,19 +15,19 @@ class Warrior extends Entity{
             if(polar.r > this.range) {
                 this.move(this.speed, polar.phi);
             } else {
-                this.attack();
+                this.attack(myTeam, enemyTeams);
             }
         }
     }
 
-    attack() {
+    attack(myTeam, enemyTeams) {
         let me = this;
         this.attackInfo.startAttack(() => {
-            me.onAttack();
+            me.onAttack(myTeam, enemyTeams);
         });
     }
 
-    onAttack() {
+    onAttack(myTeam, enemyTeams) {
         if(this.target) {
             let polar = Gmt.cartesianToPolar(this.hitbox.x - this.target.hitbox.x, this.hitbox.y - this.target.hitbox.y);
             if(polar.r <= this.range) {
