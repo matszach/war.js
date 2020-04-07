@@ -9,7 +9,7 @@ const CyborgWarriorSTATS = {
     minAttack: 9,
     maxAttack: 15,
     speed: DEFAULT.UNIT_SPEED * 0.7, 
-    range: DEFAULT.UNIT_RANGED_RANGE * 0.8, 
+    range: DEFAULT.UNIT_RANGED_RANGE * 0.35, 
     projectileClass: null
 };
 
