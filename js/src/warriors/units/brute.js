@@ -13,7 +13,7 @@ const BruteWarriorSTATS = {
     range: DEFAULT.UNIT_MELEE_RANGE * 1.5
 };
 
-class BruteWarrior extends MeleeWarrior {
+class BruteWarrior extends Warrior {
     constructor() {
         super(BruteWarriorSTATS);
     }

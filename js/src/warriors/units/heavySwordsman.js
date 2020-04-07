@@ -13,7 +13,7 @@ const HeavySwordsmanWarriorSTATS = {
     range: DEFAULT.UNIT_MELEE_RANGE * 1.1
 };
 
-class HeavySwordsmanWarrior extends MeleeWarrior {
+class HeavySwordsmanWarrior extends Warrior {
     constructor() {
         super(HeavySwordsmanWarriorSTATS);
     }

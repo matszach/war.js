@@ -9,33 +9,34 @@ class Warrior extends Entity{
     }
 
     act(myTeam, enemyTeams) {
-        if(this.lockOnTarget(enemyTeams)){
+        if(this.lockOnTarget(myTeam, enemyTeams)){
             let polar = Gmt.cartesianToPolar(this.hitbox.x - this.target.hitbox.x, this.hitbox.y - this.target.hitbox.y);
             this.turnTo(polar.phi);
             if(polar.r > this.range) {
                 this.move(this.speed, polar.phi);
             } else {
-                this.attack(myTeam, enemyTeams);
+                this.attack();
             }
         }
     }
 
-    attack(myTeam, enemyTeams) {
+    attack() {
         let me = this;
         this.attackInfo.startAttack(() => {
-            me.onAttack(myTeam, enemyTeams);
-        }, myTeam, enemyTeams);
+            me.onAttack();
+        });
     }
 
-    onAttack(myTeam, enemyTeams) {
-        // temp
+    onAttack() {
         if(this.target) {
-            this.target.hp.damage(this.attackInfo.getDmg());
+            let polar = Gmt.cartesianToPolar(this.hitbox.x - this.target.hitbox.x, this.hitbox.y - this.target.hitbox.y);
+            if(polar.r <= this.range) {
+                this.target.hp.damage(this.attackInfo.getDmg());
+            }
         }
-        // abstract
     }
 
-    lockOnTarget(enemyTeams) {
+    lockOnTarget(myTeam, enemyTeams) {
         if(!this.target) {
             let newTarget = null;
             let newTargetDist = Infinity;

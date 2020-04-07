@@ -20,7 +20,7 @@ class AttackInfo {
         return Gmt.randFloat(this.minDmg, this.maxDmg);
     }
 
-    startAttack(callback, myTeam, enemyTeams) {
+    startAttack(callback) {
         let info = this;
         if(info.state !== STATE.IDLE || info.isCooldown) {
             return;
@@ -31,9 +31,8 @@ class AttackInfo {
                 info.isCooldown = false;
             }, info.cooldown);
             setTimeout(() => {
-                callback(myTeam, enemyTeams);
+                callback();
                 setTimeout(() => {
-                    callback(myTeam, enemyTeams);
                     info.state = STATE.IDLE;
                 }, info.winddown);
                 info.state = STATE.WINDDOWN;

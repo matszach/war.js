@@ -7,15 +7,14 @@ const ArcherWarriorSTATS = {
     attackWinddown: 500,
     attackCooldown: 2500, 
     minAttack: 3,
-    maxAttack: 5,
+    maxAttack: 6,
     collisonSize: DEFAULT.UNIT_COLLISION_SIZE,
     speed: DEFAULT.UNIT_SPEED * 1, 
     range: DEFAULT.UNIT_RANGED_RANGE, 
-    accuracy: 0.99,
     projectileClass: null
 };
 
-class ArcherWarrior extends MeleeWarrior {
+class ArcherWarrior extends Warrior {
     constructor() {
         super(ArcherWarriorSTATS);
     }

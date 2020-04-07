@@ -13,7 +13,7 @@ const MilitiaWarriorSTATS = {
     range: DEFAULT.UNIT_MELEE_RANGE
 };
 
-class MilitiaWarrior extends MeleeWarrior {
+class MilitiaWarrior extends Warrior {
     constructor() {
         super(MilitiaWarriorSTATS);
     }

@@ -5,7 +5,6 @@ class Team {
         this.warriors = [];
         this.projectiles = [];
         this.unitTileset = new Gmt.TileSet(`assets\\target\\units.${color}.png`, 128, 128, 8);
-        this.projectileTileset = new Gmt.TileSet(`assets\\target\\projectiles.${color}.png`, 128, 128, 8);
         this.symbolTileset = new Gmt.TileSet(`assets\\target\\symbols.${color}.png`, 128, 128, 8);
     }
 

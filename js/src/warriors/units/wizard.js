@@ -6,16 +6,15 @@ const WizardWarriorSTATS = {
     attackWindup: 500,
     attackWinddown: 800,
     attackCooldown: 3500, 
-    minAttack: 3,
+    minAttack: 4,
     maxAttack: 8,
     collisonSize: DEFAULT.UNIT_COLLISION_SIZE * 0.8,
     speed: DEFAULT.UNIT_SPEED * 1, 
     range: DEFAULT.UNIT_RANGED_RANGE * 0.7, 
-    accuracy: 0.95,
     projectileClass: null
 };
 
-class WizardWarrior extends MeleeWarrior {
+class WizardWarrior extends Warrior {
     constructor() {
         super(WizardWarriorSTATS);
     }

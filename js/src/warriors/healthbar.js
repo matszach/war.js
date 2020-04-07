@@ -22,6 +22,10 @@ class HealthBar {
             this.curr = this.max;
         }
     }
+
+    asFraction() {
+        return this.curr/this.max; 
+    }
     
     reset() {
         this.curr = this.max;

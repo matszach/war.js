@@ -6,7 +6,7 @@ const COLORS = [
 const UNIT_TYPES = [
     MilitiaWarrior, SwordsmanWarrior, HeavySwordsmanWarrior,
     SpearmanWarrior, HeavySpearmanWarrior, ArcherWarrior, 
-    WizardWarrior, BruteWarrior, BarbarianWarrior, TankWarrior
+    WizardWarrior, BruteWarrior, BarbarianWarrior, TankWarrior, MedicWarrior
 ];
 
 

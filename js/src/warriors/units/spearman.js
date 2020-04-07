@@ -13,7 +13,7 @@ const SpearmanWarriorSTATS = {
     range: DEFAULT.UNIT_MELEE_RANGE * 1.5
 };
 
-class SpearmanWarrior extends MeleeWarrior {
+class SpearmanWarrior extends Warrior {
     constructor() {
         super(SpearmanWarriorSTATS);
     }

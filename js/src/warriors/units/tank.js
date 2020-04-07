@@ -13,7 +13,7 @@ const TankWarriorSTATS = {
     range: DEFAULT.UNIT_MELEE_RANGE
 };
 
-class TankWarrior extends MeleeWarrior {
+class TankWarrior extends Warrior {
     constructor() {
         super(TankWarriorSTATS);
     }
