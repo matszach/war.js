@@ -8,7 +8,6 @@ const TankWarriorSTATS = {
     attackCooldown: 1500, 
     minAttack: 3,
     maxAttack: 8,
-    collisonSize: DEFAULT.UNIT_COLLISION_SIZE * 1.2,
     speed: DEFAULT.UNIT_SPEED * 0.7, 
     range: DEFAULT.UNIT_MELEE_RANGE
 };

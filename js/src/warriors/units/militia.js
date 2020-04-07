@@ -8,7 +8,6 @@ const MilitiaWarriorSTATS = {
     attackCooldown: 1500, 
     minAttack: 3,
     maxAttack: 8,
-    collisonSize: DEFAULT.UNIT_COLLISION_SIZE,
     speed: DEFAULT.UNIT_SPEED * 1, 
     range: DEFAULT.UNIT_MELEE_RANGE
 };

@@ -9,7 +9,6 @@ const MedicWarriorSTATS = {
     attackCooldown: 3000, 
     minAttack: 6, 
     maxAttack: 12,
-    collisonSize: DEFAULT.UNIT_COLLISION_SIZE * 0.9,
     speed: DEFAULT.UNIT_SPEED * 0.9, 
     range: DEFAULT.UNIT_RANGED_RANGE * 0.3, 
     projectileClass: null
@@ -23,7 +22,7 @@ class MedicWarrior extends Warrior {
 
     onAttack(myTeam, enemyTeams) {
         if(this.target) {
-            let polar = Gmt.cartesianToPolar(this.hitbox.x - this.target.hitbox.x, this.hitbox.y - this.target.hitbox.y);
+            let polar = Gmt.cartesianToPolar(this.pos.x - this.target.pos.x, this.pos.y - this.target.pos.y);
             if(polar.r <= this.range) {
                 this.target.hp.heal(this.attackInfo.getDmg());
             }
@@ -35,7 +34,7 @@ class MedicWarrior extends Warrior {
             let newTarget = null;
             let newTargetPriority = 0;
             myTeam.warriors.filter(w => w.hp.alive).forEach(w => {
-                let dist = Gmt.Distance.circles(this.hitbox, w.hitbox);
+                let dist = Gmt.Distance.vertices(this.pos, w.pos);
                 let missingHp = 1 - w.hp.asFraction();
                 let prority = missingHp/dist;
                 if(prority >= newTargetPriority) {

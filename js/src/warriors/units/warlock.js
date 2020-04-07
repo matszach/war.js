@@ -4,12 +4,11 @@ const WarlockWarriorSTATS = {
     spriteRow: 11,
     displaySize: DEFAULT.UNIT_SPRITE_SIZE * 0.9,
     // ressurection
-    attackWindup: 500,
+    attackWindup: 1000,
     attackWinddown: 800,
-    attackCooldown: 6000, 
+    attackCooldown: 10000, 
     minAttack: 6, 
     maxAttack: 12,
-    collisonSize: DEFAULT.UNIT_COLLISION_SIZE * 0.9,
     speed: DEFAULT.UNIT_SPEED * 0.9, 
     range: DEFAULT.UNIT_RANGED_RANGE * 0.4, 
     projectileClass: null
@@ -22,12 +21,11 @@ class WarlockWarrior extends Warrior {
     }
 
     onAttack(myTeam, enemyTeams) {
-        console.log(1);
-        if(!this.target.hp.alive) {
-            console.log(2);
-            let polar = Gmt.cartesianToPolar(this.hitbox.x - this.target.hitbox.x, this.hitbox.y - this.target.hitbox.y);
+        if(!!this.target && !this.target.hp.alive) {
+            let polar = Gmt.cartesianToPolar(this.pos.x - this.target.pos.x, this.pos.y - this.target.pos.y);
             if(polar.r <= this.range) {
                 this.target.hp.reset();
+                this.target.hp.setAsFraction(0.25);
             }
         }
     }
@@ -37,7 +35,7 @@ class WarlockWarrior extends Warrior {
             let newTarget = null;
             let newTargetDist = Infinity;
             myTeam.warriors.filter(w => !w.hp.alive).forEach(w => {
-                let dist = Gmt.Distance.circles(this.hitbox, w.hitbox);
+                let dist = Gmt.Distance.vertices(this.pos, w.pos);
                 if(dist < newTargetDist) {
                     newTargetDist = dist;
                     newTarget = w;
@@ -45,7 +43,6 @@ class WarlockWarrior extends Warrior {
             });
             this.target = newTarget;
         } else if (this.target.hp.alive) {
-            console.log(3);
             this.target = undefined;
         }
         return this.target ? true : false;

@@ -8,7 +8,6 @@ const HeavySwordsmanWarriorSTATS = {
     attackCooldown: 1500,
     minAttack: 8,
     maxAttack: 15,
-    collisonSize: DEFAULT.UNIT_COLLISION_SIZE,
     speed: DEFAULT.UNIT_SPEED * 0.80,
     range: DEFAULT.UNIT_MELEE_RANGE * 1.1
 };

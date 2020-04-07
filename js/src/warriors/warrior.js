@@ -10,7 +10,7 @@ class Warrior extends Entity{
 
     act(myTeam, enemyTeams) {
         if(this.lockOnTarget(myTeam, enemyTeams)){
-            let polar = Gmt.cartesianToPolar(this.hitbox.x - this.target.hitbox.x, this.hitbox.y - this.target.hitbox.y);
+            let polar = Gmt.cartesianToPolar(this.pos.x - this.target.pos.x, this.pos.y - this.target.pos.y);
             this.turnTo(polar.phi);
             if(polar.r > this.range) {
                 this.move(this.speed, polar.phi);
@@ -29,7 +29,7 @@ class Warrior extends Entity{
 
     onAttack(myTeam, enemyTeams) {
         if(this.target) {
-            let polar = Gmt.cartesianToPolar(this.hitbox.x - this.target.hitbox.x, this.hitbox.y - this.target.hitbox.y);
+            let polar = Gmt.cartesianToPolar(this.pos.x - this.target.pos.x, this.pos.y - this.target.pos.y);
             if(polar.r <= this.range) {
                 this.target.hp.damage(this.attackInfo.getDmg());
             }
@@ -42,7 +42,7 @@ class Warrior extends Entity{
             let newTargetDist = Infinity;
             enemyTeams.forEach(t => {
                 t.warriors.filter(w => w.hp.alive).forEach(w => {
-                    let dist = Gmt.Distance.circles(this.hitbox, w.hitbox);
+                    let dist = Gmt.Distance.vertices(this.pos, w.pos);
                     if(dist < newTargetDist) {
                         newTargetDist = dist;
                         newTarget = w;

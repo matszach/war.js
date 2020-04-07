@@ -8,7 +8,6 @@ const ArcherWarriorSTATS = {
     attackCooldown: 2500, 
     minAttack: 3,
     maxAttack: 6,
-    collisonSize: DEFAULT.UNIT_COLLISION_SIZE,
     speed: DEFAULT.UNIT_SPEED * 1, 
     range: DEFAULT.UNIT_RANGED_RANGE, 
     projectileClass: null

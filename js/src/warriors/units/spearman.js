@@ -8,7 +8,6 @@ const SpearmanWarriorSTATS = {
     attackCooldown: 2000, 
     minAttack: 5,
     maxAttack: 10,
-    collisonSize: DEFAULT.UNIT_COLLISION_SIZE,
     speed: DEFAULT.UNIT_SPEED * 0.95,
     range: DEFAULT.UNIT_MELEE_RANGE * 1.5
 };
