@@ -7,7 +7,7 @@ const UNIT_TYPES = [
     MilitiaWarrior, SwordsmanWarrior, HeavySwordsmanWarrior,
     SpearmanWarrior, HeavySpearmanWarrior, ArcherWarrior, 
     WizardWarrior, BruteWarrior, BarbarianWarrior, TankWarrior, MedicWarrior,
-    WarlockWarrior, SkeletonWarrior
+    WarlockWarrior, SkeletonWarrior, CyborgWarrior
 ];
 
 
